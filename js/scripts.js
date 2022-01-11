@@ -1,6 +1,9 @@
 let pokemonList=[{name: "Bulbasaur", height: .7, type: ['grass', 'poison'] },
                  {name: "Charizard", height: 1.7, type: ['fire', 'flying'] },
-                 {name: "Butterfree", height: 1, type: ['bug', 'flying']}];
+                 {name: "Butterfree", height: 1, type: ['bug', 'flying']},
+                 {name: "Weedle", height: .3, type: ['bug', 'poison']},
+                 {name: "Fearow", height: 1.2, type: ['flying', 'normal']},
+                 {name: "Nidoking", height: 1.4, type: ['ground', 'poison']}];
 
                  // Initialization "let i = 0", the condition "i < pokemonList.length;"
                  // and the action "i++ which is the equivalent of i = i + 1"
