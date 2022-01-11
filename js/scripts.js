@@ -5,10 +5,11 @@ let pokemonList=[{name: "Bulbasaur", height: .7, type: ['grass', 'poison'] },
                  // Initialization "let i = 0", the condition "i < pokemonList.length;"
                  // and the action "i++ which is the equivalent of i = i + 1"
                  for (let i = 0; i < pokemonList.length; i++) {
-                   document.write(pokemonList[i].name + (' height: ') + pokemonList[i].height);
+                   document.write('<br>' + pokemonList[i].name + (' height: ') + pokemonList[i].height);
                     //This handles heights greater than or equal to 1.7
                    if (pokemonList[i].height >= 1.7) {
                      document.write(' - Wow, that\'s a big Pokemon!');
+                     //document.write(pokemonList[i].name + ('  (height: ') + pokemonList[i].height + ')');
                      // This handles heights between 1 and 1.7
                      if (pokemonList[i].height < 1.7 && pokemonList[i].height >= 1) {
                        document.write(' - This is a medium size Pokemon!');
@@ -17,8 +18,9 @@ let pokemonList=[{name: "Bulbasaur", height: .7, type: ['grass', 'poison'] },
                      else if (pokemonList[i].height < 1) {
                        document.write(' - This is a small Pokemon!');
                      }
-                     else {
+                     else if (pokemonList[i].height > 1.7){
                        //this handlles any height greater than 1.7
                        document.write(' - This is a tremendous Pokemon!');
                      }
                    }
+}
