@@ -9,4 +9,8 @@ let pokemonList=[{name: "Bulbasaur", height: .7, type: ['grass', 'poison'] },
                     //This handles heights greater than or equal to 1.7
                    if (pokemonList[i].height >= 1.7) {
                      document.write(' - Wow, that\'s a big Pokemon!');
-                   
+                     // This handles heights between 1 and 1.7
+                     if (pokemonList[i].height < 1.7 && pokemonList[i].height >= 1) {
+                       document.write(' - This is a medium size Pokemon!');
+                     }
+                    
