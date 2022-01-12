@@ -13,17 +13,14 @@ let pokemonList=[{name: "Bulbasaur", height: .7, type: ['grass', 'poison'] },
                    if (pokemonList[i].height >= 1.7) {
                      document.write(' - Wow, that\'s a big Pokemon!');
                      //document.write(pokemonList[i].name + ('  (height: ') + pokemonList[i].height + ')');
-                     // This handles heights between 1 and 1.7
-                     if (pokemonList[i].height < 1.7 && pokemonList[i].height >= 1) {
+                     // This handles heights greater than 1 and less than 1.7
+                     if (pokemonList[i].height < 1.7 && pokemonList[i].height > 1) {
                        document.write(' - This is a medium size Pokemon!');
                      }
-                     //this handles heights less than 1
-                     else if (pokemonList[i].height < 1) {
+                     //this handles heights less than or eaual to 1
+                     else if (pokemonList[i].height <= 1) {
                        document.write(' - This is a small Pokemon!');
                      }
-                     else if (pokemonList[i].height > 1.7){
-                       //this handlles any height greater than 1.7
-                       document.write(' - This is a tremendous Pokemon!');
-                     }
+
                    }
 }
