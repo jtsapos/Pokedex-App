@@ -36,7 +36,7 @@ for (let i = 0; i < pokemonList.length; i++) {
   document.write('<br>' + pokemonList[i].name + (' , height: ') + pokemonList[i].height);
   //This handles heights greater than or equal to 1.7
   if (pokemonList[i].height >= 1.7) {
-    document.write(' - Wow, that\'s a big Pokemon!');
+    document.write(' - Wow, that\'s a big Pokemon!');}
     //document.write(pokemonList[i].name + ('  (height: ') + pokemonList[i].height + ')');
     // This handles heights greater than 1 and less than 1.7
     if (pokemonList[i].height < 1.7 && pokemonList[i].height > 1) {
@@ -48,4 +48,3 @@ for (let i = 0; i < pokemonList.length; i++) {
     }
 
   }
-}
