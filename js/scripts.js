@@ -30,22 +30,7 @@ let pokemonList = [{
   }
 ];
 
-// Initialization "let i = 0", the condition "i < pokemonList.length;"
-// and the action "i++ which is the equivalent of i = i + 1"
-for (let i = 0; i < pokemonList.length; i++) {
-  document.write('<br>' + pokemonList[i].name + (' , height: ') + pokemonList[i].height);
-  //This handles heights greater than or equal to 1.7
-  if (pokemonList[i].height >= 1.7) {
-    document.write(' - Wow, that\'s a big Pokemon!');
-  }
-  //document.write(pokemonList[i].name + ('  (height: ') + pokemonList[i].height + ')');
-  // This handles heights greater than 1 and less than 1.7
-  else if (pokemonList[i].height < 1.7 && pokemonList[i].height > 1) {
-    document.write(' - This is a medium size Pokemon!');
-  }
-  //this handles heights less than or eaual to 1
-  else if (pokemonList[i].height <= 1) {
-    document.write(' - This is a small Pokemon!');
-  }
-
+function pokemonLoop(user) {
+  document.write('<br>' + user.name + ' height is ' + user.height + ' and attacks used are ' + user.type);
 }
+pokemonList.forEach(pokemonLoop);
