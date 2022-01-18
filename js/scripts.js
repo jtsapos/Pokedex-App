@@ -48,10 +48,4 @@ let pokemonRepository = (function() {
   };
 
 })();
-
-function pokemonLoop(item) {
-  document.write(pokemonRepository.getAll());
-  document.write('<br>' + user.name + ' height is ' + user.height + ' and attacks used are ' + user.type);
-
-}
-pokemonList.forEach(pokemonLoop);
+pokemonRepository.getAll().forEach((item => console.log(item)));
