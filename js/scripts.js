@@ -48,4 +48,5 @@ let pokemonRepository = (function() {
   };
 
 })();
+//console.log(pokemonRepository.getAll());
 pokemonRepository.getAll().forEach((item => console.log(item)));
