@@ -48,8 +48,7 @@ let pokemonRepository = (function() {
   };
 
 })();
-console.log(pokemonRepository.getAll());
+//console.log(pokemonRepository.getAll());
 pokemonRepository.getAll().forEach(function(item) {
-  //pokemonRepository.getAll().forEach((item => console.log(item) {
-
+  document.write("<br>" + item.name + " : " + item.height + " : " + item.type);
 });
