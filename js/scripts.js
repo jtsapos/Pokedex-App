@@ -51,4 +51,6 @@ let pokemonRepository = (function() {
 //console.log(pokemonRepository.getAll());
 pokemonRepository.getAll().forEach(function(item) {
   document.write("<br>" + item.name + " : " + item.height + " : " + item.type);
+  if (item.height >= 1.7)
+    document.write(' - Wow, that\'s a big Pokemon!');
 });
