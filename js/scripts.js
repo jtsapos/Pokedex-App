@@ -51,10 +51,6 @@ let pokemonRepository = (function() {
     return repository;
   }
 
-  // function that prints pokemon details onto console
-  function showDetails(pokemon) {
-    console.log(pokemon);
-  }
 
   function addListItem(pokemon) {
     let pokemonList = document.querySelector(".pokemon-list"); //create new varible pokemonList wch takes queryselector wch is .pokemon-list class(frm index.html)
@@ -64,7 +60,24 @@ let pokemonRepository = (function() {
     button.classList.add("button-class"); //add css class to style the button from styles.css
     listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
     pokemonList.appendChild(listpokemon); //now we append the li to the ul (.pokemon-List)(which is the main element or parent element)
+
+    // Adds an event listener to the created button above
+    buttonEventListener(button, pokemon);
   }
+
+  // When the user clicks the selected button, the click function passed as the second parameter in addEventListener will be called to show pokemon details.
+  //This function is called an event handler.
+  function buttonEventListener(button, pokemon) {
+    button.addEventListener('click', function() {
+      showDetails(pokemon);
+    });
+  }
+
+  // function that prints pokemon details onto console
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
 
   return {
     add: add,
