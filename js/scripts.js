@@ -51,12 +51,17 @@ let pokemonRepository = (function() {
     return repository;
   }
 
+  // function that prints pokemon details onto console
+  function showDetails(pokemon) {
+    console.log(pokemon);
+  }
+
   function addListItem(pokemon) {
-    let pokemonList = document.queryselector(".pokemon-list"); //create new varible pokemonList wch takes queryselector wch is .pokemon-list class(frm index.html)
+    let pokemonList = document.querySelector(".pokemon-list"); //create new varible pokemonList wch takes queryselector wch is .pokemon-list class(frm index.html)
     let listpokemon = document.createElement("li"); //after creating ul element we create an li element using createElement
     let button = document.createElement("button"); //inside each li we create a button tag with createElement
     button.innerText = pokemon.name; //renders the button, adds pokemon name inside the button
-    button.classlist.add("button-class"); //add css class to style the button from styles.css
+    button.classList.add("button-class"); //add css class to style the button from styles.css
     listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
     pokemonList.appendChild(listpokemon); //now we append the li to the ul (.pokemon-List)(which is the main element or parent element)
   }
