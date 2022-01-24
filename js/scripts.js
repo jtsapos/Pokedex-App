@@ -50,6 +50,19 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     })
   }
 
+  function loadDetails(item) {
+    let url = item.detailsUrl; //detailsUrl comes from loadList function above which collects the details for each pokemon
+    return fetch(url).then(function(response) { //promise fetch(url) collects all the details through the response and passes
+      return response.json(); //them through to the json
+    }).then(function(details) { //once we get the json we chain another promise .then function which collects all the details
+      // Now we add the details to the item
+      item.imageUrl = details.sprites.front_default; //item is coming from the apiUrl and we're collecting details from the sprites characteristics
+      item.height = details.height; //collecting height data
+      item.types = details.types; //collecting type data
+    }).catch(function(e) {
+      console.error(e);
+    });
+  }
 
   // function that prints pokemon details onto console
   function showDetails(pokemon) {
@@ -60,7 +73,8 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     add: add,
     getAll: getAll,
     addListItem: addListItem,
-    loadList: loadList
+    loadList: loadList,
+    loadDetails: loadDetails
   };
 
 })();
