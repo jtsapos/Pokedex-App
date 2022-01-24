@@ -28,7 +28,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
     pokemonList.appendChild(listpokemon); //now we append the li to the ul (.pokemon-List)(which is the main element or parent element)
     //function buttonEventListener(button, pokemon) { // When the user clicks the selected button, the click function passed as the second parameter in addEventListener will be called to show pokemon details.
-    button.addEventListener('click', function() {
+    button.addEventListener("click", function(event) { //event listener which listens for a mouseclick, then executes the show details function for the pokemon
       showDetails(pokemon);
     });
   } //buttonEventListener(button, pokemon);} // Adds an event listener to the created button above
@@ -65,8 +65,11 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
   }
 
   // function that prints pokemon details onto console
-  function showDetails(pokemon) {
-    console.log(pokemon);
+  function showDetails(item) {
+    pokemonRepository.loadDetails(item).then(function() //loads the pokemon details and prints to the console
+      {
+        console.log(item);
+      });
   }
 
   return {
@@ -74,7 +77,8 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     getAll: getAll,
     addListItem: addListItem,
     loadList: loadList,
-    loadDetails: loadDetails
+    loadDetails: loadDetails,
+    showDetails: showDetails
   };
 
 })();
