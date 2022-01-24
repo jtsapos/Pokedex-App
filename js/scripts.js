@@ -1,54 +1,23 @@
-let pokemonRepository = (function() {
+let pokemonRepository = (function() { //creates an IIFE for pokemon list
 
-  let repository = [
+  let pokemonList = []
+  let apiUrl = "https://pokeapi.co/api/v2/pokemon/?limit=150";
 
-    {
-      name: "Bulbasaur",
-      height: .7,
-      type: ['grass', 'poison']
-    },
-    {
-      name: "Charizard",
-      height: 1.7,
-      type: ['fire', 'flying']
-    },
-    {
-      name: "Butterfree",
-      height: 1,
-      type: ['bug', 'flying']
-    },
-    {
-      name: "Weedle",
-      height: .3,
-      type: ['bug', 'poison']
-    },
-    {
-      name: "Fearow",
-      height: 1.2,
-      type: ['flying', 'normal']
-    },
-    {
-      name: "Nidoking",
-      height: 1.4,
-      type: ['ground', 'poison']
-    },
-  ];
-
-  function add(pokemon) {
+  function add(pokemon) { // function to add a pokemon to the pokemonList
     if (
       typeof pokemon === "object" &&
       "name" in pokemon &&
       "height" in pokemon &&
       "types" in pokemon
     ) {
-      repository.push(pokemon);
+      pokemonList.push(pokemon);
     } else {
       document.write("pokemon is not correct");
     }
   }
 
   function getAll() {
-    return repository;
+    return pokemonList;
   }
 
 
