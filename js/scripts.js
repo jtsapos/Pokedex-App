@@ -51,7 +51,6 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         }
 
 
-
         // function that prints pokemon details onto console
         function showDetails(pokemon) {
           console.log(pokemon);
