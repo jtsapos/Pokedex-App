@@ -6,9 +6,8 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
       function add(pokemon) { // function to add a pokemon to the pokemonList
         if (
           typeof pokemon === "object" &&
-          "name" in pokemon &&
-          "height" in pokemon &&
-          "types" in pokemon
+          "name" in pokemon && //if pokemon is an object and has a name we will push the pokemon in the repository
+          //"detailsUrl" in pokemon
         ) {
           pokemonList.push(pokemon);
         } else {
@@ -33,14 +32,15 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             showDetails(pokemon);
           });
         } // Adds an event listener to the created button above  //buttonEventListener(button, pokemon);}
-        function loadList() {
+
+        function loadList() { //promise function which fetches the apiUrl
           return fetch(apiUrl).then(function(response) {
             return response.json();
-          }).then(function(json) {
-            json.results.forEach(function(item) {
+          }).then(function(json) { //json is basically the entire result of the apiUrl
+            json.results.forEach(function(item) { //.results is the key
               let pokemon = {
-                name: item.name,
-                detailsUrl: item.url
+                name: item.name, //from the api pokemon list here we are retrieving the pokemon name
+                detailsUrl: item.url //from the api pokemon list here we are retrieving the pokemon details (url)
               };
               add(pokemon);
               console.log(pokemon);
