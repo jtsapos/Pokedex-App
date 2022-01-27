@@ -36,6 +36,9 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
       function showModal(pokemon) {
         let modalContainer = document.querySelector('#modal-container'); //function selects the id #modal-container from index.html
 
+        modalContainer.innerHTML = ''; //clears all existing modal content
+
+
         function loadList() { //promise function which fetches the apiUrl
           return fetch(apiUrl).then(function(response) {
             return response.json();
