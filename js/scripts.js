@@ -38,6 +38,15 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
 
         modalContainer.innerHTML = ''; //clears all existing modal content
 
+        let modal = document.createElement('div'); //here the modal will create a div element in the html
+        modal.classList.add('modal'); //and this div will take a class called modal
+
+        // Add the new modal content
+        let closeButtonElement = document.createElement('button');
+        closeButtonElement.classList.add('modal-close');
+        closeButtonElement.innerText = 'Close';
+
+
 
         function loadList() { //promise function which fetches the apiUrl
           return fetch(apiUrl).then(function(response) {
