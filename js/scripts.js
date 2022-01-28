@@ -4,11 +4,8 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
   let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
 
   function add(pokemon) { // function to add a pokemon to the pokemonList
-    if (
-      typeof pokemon === "object" &&
-      "name" in pokemon //&& //if pokemon is an object and has a name we will push the pokemon in the repository
+    if (typeof pokemon === "object" && "name" in pokemon) { //&& //if pokemon is an object and has a name we will push the pokemon in the repository
       //"detailsUrl" in pokemon
-    ) {
       pokemonList.push(pokemon);
     } else {
       document.write("pokemon is not correct");
@@ -23,6 +20,9 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     let pokemonList = document.querySelector(".pokemon-list"); //create new varible pokemonList wch takes queryselector wch is .pokemon-list class(frm index.html)
     let listpokemon = document.createElement("li"); //after creating ul element we create an li element using createElement
     let button = document.createElement("button"); //inside each li we create a button tag with createElement
+    let pokemonImage = document.createElement("img"); //here we create an image tag
+    pokemonImage.src = pokemon.imageUrl;
+    let pokemonName = pokemon.name;
     button.innerText = pokemon.name; //renders the button, adds pokemon name inside the button
     button.classList.add("button-class"); //add css class to style the button from styles.css
     listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
@@ -62,7 +62,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     modal.appendChild(pokemonName);
     modal.appendChild(pokemonHeight);
     modal.appendChild(pokemonImage);
-    modalContainer.appendChild(modal); //then we have the modal(which includes the children-button,name,ht,image)appended to the modal container
+    modalContainer.appendChild(modal); //then we append the modal(child)(includes 3 children-button,name,ht,image) to the modal container(parent)
     //as a parent element
     modalContainer.classList.add('is-visible'); //displays modal container
   }
@@ -103,7 +103,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
           detailsUrl: item.url //from the api pokemon list here we are retrieving the pokemon details (url)
         };
         add(pokemon);
-        console.log(pokemon);
+        //console.log(pokemon);
       });
     }).catch(function(e) {
       console.error(e);
@@ -125,10 +125,10 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
   }
 
   // function that prints pokemon details onto console
-  function showDetails(item) {
-    pokemonRepository.loadDetails(item).then(function() //loads the pokemon details and prints to the console
+  function showDetails(pokemon) {
+    pokemonRepository.loadDetails(pokemon).then(function() //loads the pokemon details and prints to the console
       {
-        console.log(item);
+        showModal(pokemon);
       });
   }
 
