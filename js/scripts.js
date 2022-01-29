@@ -1,7 +1,7 @@
 let pokemonRepository = (function() { //creates an IIFE for pokemon list
   let modalContainer = document.querySelector('#modal-container'); //acts as a global variable where all the functions below have access to it.
   let pokemonList = [];
-  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=150';
+  let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=20';
 
   function add(pokemon) { // function to add a pokemon to the pokemonList
     if (typeof pokemon === "object" && "name" in pokemon) { //&& //if pokemon is an object and has a name we will push the pokemon in the repository
