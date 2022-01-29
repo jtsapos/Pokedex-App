@@ -33,66 +33,6 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     });
   } //buttonEventListener(button, pokemon);} // Adds an event listener to the created button above
 
-  function showModal(pokemon) {
-    let modalContainer = document.querySelector('#modal-container'); //function selects the id #modal-container from index.html
-
-    modalContainer.innerHTML = ''; //clears all existing modal content
-
-    let modal = document.createElement('div'); //here the modal will create a div element in the html
-    modal.classList.add('modal'); //and this div will take a class called modal
-
-    // Add the new modal content
-    let closeButtonElement = document.createElement('button'); //creates the close button from html
-    closeButtonElement.classList.add('modal-close'); // 'modal-close' from styles.css
-    closeButtonElement.innerText = 'Close'; //'close' displays as text in the button
-    closeButtonElement.addEventListener('click', hideModal); //adds event listener to call the hideModal function below when close button is clicked
-
-    let pokemonName = document.createElement('h1'); //created h1 title element from html to display title
-    pokemonName.innerText = pokemon.name; //displays name of the pokemon
-
-    let pokemonHeight = document.createElement('p'); //now we create the paragraph element (from html)
-    pokemonHeight.innerText = 'Height: ' + pokemon.height;
-
-    let pokemonImage = document.createElement('img'); // now we Create an <img> element
-    pokemonImage.classList.add('pokemon-modal-image'); //from styles.css
-    pokemonImage.src = pokemon.imageUrl; // setting `src` property to set the actual element's `src` attribute
-
-    //Now we need to append these elements to the modal
-    modal.appendChild(closeButtonElement);
-    modal.appendChild(pokemonName);
-    modal.appendChild(pokemonHeight);
-    modal.appendChild(pokemonImage);
-    modalContainer.appendChild(modal); //then we append the modal(child)(includes 3 children-button,name,ht,image) to the modal container(parent)
-    //as a parent element
-    modalContainer.classList.add('is-visible'); //displays modal container
-  }
-
-  function hideModal() {
-    let modalContainer = document.querySelector('#modal-container');
-    modalContainer.classList.remove('is-visible'); // takes the is-visible class from css
-  }
-
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal();
-  });
-
-  //using the Escape key to hide the modal
-  window.addEventListener('keydown', (e) => { //keydown is a pre-defined event listener for when you click on any key on the keyboard
-    let modalContainer = document.querySelector('#modal-container'); //keydown will take the modal container and if the key is escape it calls hideModal
-    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
-      hideModal();
-    }
-  });
-  //// Since this is also triggered when clicking INSIDE the modal,We only want to close if the user clicks directly on the overlay
-  let modalContainer = document.querySelector('#modal-container');
-  modalContainer.addEventListener('click', (e) => {
-    let target = e.target;
-    if (target === modalContainer) {
-      hideModal();
-    }
-  });
-  */
-
   function loadList() { //promise function which fetches the apiUrl
     return fetch(apiUrl).then(function(response) {
       return response.json();
@@ -131,6 +71,63 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         showModal(pokemon);
       });
   }
+
+  function showModal(pokemon) {
+    let modalContainer = document.querySelector('#modal-container'); //function selects the id #modal-container from index.html
+
+    modalContainer.innerHTML = ''; //clears all existing modal content
+
+    let modal = document.createElement('div'); //here the modal will create a div element in the html
+    modal.classList.add('modal'); //and this div will take a class called modal
+
+    // Add the new modal content
+    let closeButtonElement = document.createElement('button'); //creates the close button from html
+    closeButtonElement.classList.add('modal-close'); // 'modal-close' from styles.css
+    closeButtonElement.innerText = 'Close'; //'close' displays as text in the button
+    closeButtonElement.addEventListener('click', hideModal); //adds event listener to call the hideModal function below when close button is clicked
+
+    let titleElement = document.createElement('h1'); //created h1 title element from html to display title
+    titleElement.innerText = pokemon.name; //displays name of the pokemon
+
+    let contentElement = document.createElement('p'); //now we create the paragraph element (from html)
+    contentElement.innerText = 'Height: ' + pokemon.height;
+
+    let imageElement = document.createElement('img'); // now we Create an <img> element
+    imageElement.src = pokemon.imageUrl; // setting `src` property to set the actual element's `src` attribute
+
+    //Now we need to append these elements to the modal
+    modal.appendChild(closeButtonElement);
+    modal.appendChild(titleElement);
+    modal.appendChild(contentElement);
+    modal.appendChild(imageElement);
+    modalContainer.appendChild(modal); //then we append the modal(child)(includes 3 children-button,name,ht,image) to the modal container(parent)
+    //as a parent element
+    modalContainer.classList.add('is-visible'); //displays modal container
+  }
+
+  function hideModal() {
+    modalContainer.classList.remove('is-visible'); // takes the is-visible class from css
+  }
+
+  document.querySelector('#show-modal').addEventListener('click', () => {
+    showModal();
+  });
+
+  //using the Escape key to hide the modal
+  window.addEventListener('keydown', (e) => { //keydown is a pre-defined event listener for when you click on any key on the keyboard
+    let modalContainer = document.querySelector('#modal-container'); //keydown will take the modal container and if the key is escape it calls hideModal
+    if (e.key === 'Escape' && modalContainer.classList.contains('is-visible')) {
+      hideModal();
+    }
+  });
+  //// Since this is also triggered when clicking INSIDE the modal,We only want to close if the user clicks directly on the overlay
+  let modalContainer = document.querySelector('#modal-container');
+  modalContainer.addEventListener('click', (e) => {
+    let target = e.target;
+    if (target === modalContainer) {
+      hideModal();
+    }
+  });
 
   return {
     add: add,
