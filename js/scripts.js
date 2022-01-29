@@ -50,15 +50,15 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     })
   }
 
-  function loadDetails(item) {
-    let url = item.detailsUrl; //detailsUrl comes from loadList function above which collects the details for each pokemon
+  function loadDetails(pokemon) {
+    let url = pokemon.detailsUrl; //detailsUrl comes from loadList function above which collects the details for each pokemon
     return fetch(url).then(function(response) { //promise fetch(url) collects all the details through the response and passes
       return response.json(); //them through to the json
     }).then(function(details) { //once we get the json we chain another promise .then function which collects all the details
       // Now we add the details to the item
-      item.imageUrl = details.sprites.front_default; //item is coming from the apiUrl and we're collecting details from the sprites characteristics
-      item.height = details.height; //collecting height data
-      item.types = details.types; //collecting type data
+      pokemon.imageUrl = details.sprites.front_default; //item is coming from the apiUrl and we're collecting details from the sprites characteristics
+      pokemon.height = details.height; //collecting height data
+      pokemon.types = details.types; //collecting type data
     }).catch(function(e) {
       console.error(e);
     });
@@ -121,12 +121,19 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     }
   });
   //// Since this is also triggered when clicking INSIDE the modal,We only want to close if the user clicks directly on the overlay
-  let modalContainer = document.querySelector('#modal-container');
   modalContainer.addEventListener('click', (e) => {
     let target = e.target;
     if (target === modalContainer) {
       hideModal();
     }
+  });
+
+  fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
+    return response.json();
+  }).then(function(pokemonList) {
+    console.log(pokemonList);
+  }).catch(function() {
+
   });
 
   return {
