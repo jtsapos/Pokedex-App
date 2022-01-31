@@ -128,11 +128,12 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     }
   });
 
+  //when the promise returned by fetch() is resolved,the response from the external source will be passed to the callback function in the .then()block
   fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
-    return response.json();
-  }).then(function(pokemonList) {
-    console.log(pokemonList);
-  }).catch(function() {
+    return response.json(); //from there the promise is passed through the json()key, which holds a function that parses the response body into JSON data.                 .
+  }).then(function(pokemonList) { //the json() function always returns a promise so the second .then()statement will contain the callback function for the second promise
+    console.log(pokemonList); //the actual json response
+  }).catch(function() { //Error
 
   });
 
