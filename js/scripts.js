@@ -21,7 +21,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     let listpokemon = document.createElement("li"); //after creating ul element we create an li element using createElement
     let button = document.createElement("button"); //inside each li we create a button tag with createElement
     let pokemonImage = document.createElement("img"); //here we create an image tag
-    pokemonImage.src = pokemon.imageUrl;
+    //pokemonImage.src = pokemon.imageUrl;
     let pokemonName = pokemon.name;
     button.innerText = pokemon.name; //renders the button, adds pokemon name inside the button
     button.classList.add("button-class"); //add css class to style the button from styles.css
@@ -109,9 +109,9 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
     modalContainer.classList.remove('is-visible'); // takes the is-visible class from css
   }
 
-  document.querySelector('#show-modal').addEventListener('click', () => {
-    showModal();
-  });
+  //document.querySelector('#show-modal').addEventListener('click', () => {
+  //  showModal();
+  //});
 
   //using the Escape key to hide the modal
   window.addEventListener('keydown', (e) => { //keydown is a pre-defined event listener for when you click on any key on the keyboard
