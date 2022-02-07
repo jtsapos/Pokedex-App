@@ -18,9 +18,71 @@
   border: 2px solid #4caf50;
 }
 
+li {
+  list-style-type: none;
+  justify-content: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+
 html,
 body {
   font-family: Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.modal-content {
+  background-color: var(--color-white);
+}
+
+h5.modal-title {
+  font-weight: bold;
+  font-variant: small-caps;
+}
+
+button.btn.btn-secondary {
+  background-color: var(--color-orange);
+  box-shadow: none;
+}
+
+button.btn.btn-secondary:hover, button.btn.btn-secondary:active {
+  background-color: var(--color-orange);
+  color: var(--color-blue);
+}
+
+img.card-img-top {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
+
+h4.card-title {
+  display: block;
+  text-align: center;
+  font-weight: bold;
+}
+
+.card {
+  position: relative;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: rgb(233, 230, 35);
+  background-clip: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.25rem;
+}
+
+div.row {
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 
 #modal-container {
