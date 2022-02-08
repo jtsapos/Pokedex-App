@@ -27,21 +27,18 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         button.classList.add("button-class"); //add css class to style the button from styles.css
         listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
         pokemonList.appendChild(listpokemon); //now we append the li to the ul (.pokemon-List)(which is the main element or parent element)
+        button.setAttribute("data-target", "#exampleModal");
+        button.setAttribute("data-toggle", "modal");
         //function buttonEventListener(button, pokemon) { // When the user clicks the selected button, the click function passed as the second parameter in addEventListener will be called to show pokemon details.
         button.addEventListener("click", function(event) { //event listener which listens for a mouseclick, then executes the show details function for the pokemon
             showDetails(pokemon);
             // function that prints pokemon details onto console
-            function showDetails(pokemon) {
-              pokemonRepository.loadDetails(pokemon).then(function() { //loads the pokemon details and prints to the console
-                console.log(pokemon);
-                showModal(pokemon);
-              });
-              buttonEventListener(button, pokemon);
-            } // Adds an event listener to the created button above
-          }
+            
+          });
+        }
 
           function loadList() { //promise function which fetches the apiUrl
-            return fetch(url).then(function(response) { //promise fetch(url) collects all the details through the response and passes
+            return fetch(apiUrl).then(function(response) { //promise fetch(url) collects all the details through the response and passes
                 return response.json(); //them through to the json
               }).then(function(json) { //json is basically the entire result of the apiUrl
                 json.results.forEach(function(item) { //.results is the key
@@ -60,7 +57,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
 
           function loadDetails(pokemon) {
             let url = pokemon.detailsUrl; //detailsUrl comes from loadList function above which collects the details for each pokemon
-            return fetch(url).then(function(response) { //promise fetch(url) collects all the details through the response and passes
+            return fetch(apiUrl).then(function(response) { //promise fetch(url) collects all the details through the response and passes
                 return response.json(); //them through to the json
               }).then(function(details) { //once we get the json we chain another promise .then function which collects all the details
                 // Now we add the details to the item
@@ -125,9 +122,11 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
           //when the promise returned by fetch() is resolved,the response from the external source will be passed to the callback function in the .then()block
           fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
             return response.json(); //from there the promise is passed through the json()key, which holds a function that parses the response body into JSON data.                 .
-          }).then(function(pokemonList) { //the json() function always returns a promise so the second .then()statement will contain the callback function for the second promise
+          })
+          .then(function(pokemonList) { //the json() function always returns a promise so the second .then()statement will contain the callback function for the second promise
             console.log(pokemonList); //the actual json response
-          }).catch(function() { //Error
+          })
+          .catch(function() { //Error
 
           });
 
