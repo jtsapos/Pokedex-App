@@ -2,7 +2,7 @@
   background-color: #4caf50;
   /* Green */
   border: none;
-  color: white;
+  color: #e4e4eb;
   padding: 16px 32px;
   text-align: center;
   text-decoration: none;
@@ -34,9 +34,9 @@ body {
   box-sizing: border-box;
 }
 
-.modal-content {
-  background-color: var(--color-white);
-}
+/*.modal-content {
+  background-color: var(--color-orange);
+}*/
 
 h5.modal-title {
   font-weight: bold;
@@ -74,7 +74,7 @@ h4.card-title {
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: rgb(233, 230, 35);
+  background-color: rgb(238, 158, 10);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
