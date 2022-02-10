@@ -1,3 +1,12 @@
+:root {
+  --color-red: #cc0000;
+  --color-yellow: #FFDe00;
+  --color-blue: #3b4cca;
+  --color-darkgrey: rgb(51, 49, 49);
+  --color-black: #000;
+  --color-white: #eee;
+}
+
 .button-class {
   background-color: #4caf50;
   /* Green */
@@ -42,6 +51,13 @@ h5.modal-title {
   font-weight: bold;
   font-variant: small-caps;
 }
+
+p {
+  color: var(--color-black);
+  text-align: left;
+  font-size: 1.25rem;
+}
+
 
 button.btn.btn-secondary {
   background-color: var(--color-orange);
