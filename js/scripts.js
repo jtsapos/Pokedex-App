@@ -36,6 +36,8 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             
           });
         }
+         
+        
 
           function loadList() { //promise function which fetches the apiUrl
             return fetch(apiUrl).then(function(response) { //promise fetch(url) collects all the details through the response and passes
@@ -57,7 +59,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
 
           function loadDetails(pokemon) {
             let url = pokemon.detailsUrl; //detailsUrl comes from loadList function above which collects the details for each pokemon
-            return fetch(apiUrl).then(function(response) { //promise fetch(url) collects all the details through the response and passes
+            return fetch(url).then(function(response) { //promise fetch(url) collects all the details through the response and passes
                 return response.json(); //them through to the json
               }).then(function(details) { //once we get the json we chain another promise .then function which collects all the details
                 // Now we add the details to the item
@@ -82,6 +84,13 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
                 console.error(e);
               });
           }
+          // function that prints pokemon details onto console
+            function showDetails(pokemon) {
+            pokemonRepository.loadDetails(pokemon).then(function() { //loads the pokemon details and prints to the console
+           console.log(pokemon);
+            showModal(pokemon);
+                });
+               }    
 
           //show modal content
           function showModal(pokemon) {
