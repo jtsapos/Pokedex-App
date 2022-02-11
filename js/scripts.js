@@ -24,7 +24,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         //pokemonImage.src = pokemon.imageUrl;
         let pokemonName = pokemon.name;
         button.innerText = pokemon.name; //renders the button, adds pokemon name inside the button
-        button.classList.add("button-class"); //add css class to style the button from styles.css
+        button.classList.add("list-group-item"); //add css class to style the button from styles.css
         listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
         pokemonList.appendChild(listpokemon); //now we append the li to the ul (.pokemon-List)(which is the main element or parent element)
         button.setAttribute("data-target", "#exampleModal");
@@ -36,8 +36,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             
           });
         }
-         
-        
+              
 
           function loadList() { //promise function which fetches the apiUrl
             return fetch(apiUrl).then(function(response) { //promise fetch(url) collects all the details through the response and passes
