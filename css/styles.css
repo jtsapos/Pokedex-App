@@ -59,16 +59,6 @@ p {
 }
 
 
-button.btn.btn-secondary {
-  background-color: var(--color-orange);
-  box-shadow: none;
-}
-
-button.btn.btn-secondary:hover, button.btn.btn-secondary:active {
-  background-color: var(--color-orange);
-  color: var(--color-blue);
-}
-
 img.card-img-top {
   display: block;
   margin-left: auto;
@@ -86,11 +76,11 @@ h4.card-title {
   position: relative;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-direction: column;
+  -ms-flex-direction: colum;
   flex-direction: column;
   min-width: 0;
   word-wrap: break-word;
-  background-color: rgb(238, 158, 10);
+  background-color: rgb(233, 230, 35);
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
