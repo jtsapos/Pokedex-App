@@ -39,6 +39,7 @@ p {
 }
 
 li {
+  position: relative;
   list-style-type: none;
   display: flex !important;
   flex-direction: column !important;
@@ -46,6 +47,7 @@ li {
   border: 1px solid rgba(0, 0, 0, 0.125);
   background-color: var(--color-yellow) !important;
   width: 50%;
+  height: 50%;
   align-content: center;
 }
 
