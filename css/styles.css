@@ -8,14 +8,6 @@
 }
 
 
-
-li {
-  list-style-type: none;
-  justify-content: center;
-  display: flex;
-  flex-wrap: wrap;
-}
-
 html,
 body {
   font-family: Arial, sans-serif;
@@ -40,7 +32,27 @@ p {
   font-size: 1.25rem;
 }
 
+.pokemon-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
 
+li {
+  list-style-type: none;
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: wrap;
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: var(--color-yellow) !important;
+  width: 50%;
+  align-content: center;
+}
+
+li img {
+  width: 30%;
+  height: fit-content;
+}
 
 
 
