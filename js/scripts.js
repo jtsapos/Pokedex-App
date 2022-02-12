@@ -1,6 +1,6 @@
 let pokemonRepository = (function() { //creates an IIFE for pokemon list
       let pokemonList = [];
-      let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=75';
+      let apiUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=76';
       let modalContainer = document.querySelector('#exampleModal'); //acts as a global variable where all the functions below have access to it.
       function add(pokemon) { // function to add a pokemon to the pokemonList
         if (typeof pokemon === "object" && "name" in pokemon) { //&& //if pokemon is an object and has a name we will push the pokemon in the repository
@@ -22,9 +22,14 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         let button = document.createElement("button"); //inside each li we create a button tag with createElement
         let pokemonImage = document.createElement("img"); //here we create an image tag
         //pokemonImage.src = pokemon.imageUrl;
-        let pokemonName = pokemon.name;
-        button.innerText = pokemon.name; //renders the button, adds pokemon name inside the button
-        button.classList.add("list-group-item"); //add css class to style the button from styles.css
+        let pokemonName = document.createElement("div");
+        pokemonImage.src = pokemon.imageUrlFront;
+        pokemonName.innerText = pokemon.name; 
+        button.innerText = "See details"; //renders the button, adds pokemon name inside the button
+        listpokemon.classList.add("list-group-item");
+        button.classList.add("btn", "btn-primary");//add bootstrap css class to style your list of elements with some borders and padding
+        listpokemon.appendChild(pokemonName); //calls the listpokemon and appends the Pokemon name
+        listpokemon.appendChild(pokemonImage); //calls the listpokemon and appends the Pokemon image
         listpokemon.appendChild(button); //calls the listpokemon and appends the child button to the li (ea button is an li)
         pokemonList.appendChild(listpokemon); //now we append the li to the ul (.pokemon-List)(which is the main element or parent element)
         button.setAttribute("data-target", "#exampleModal");
