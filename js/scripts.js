@@ -16,7 +16,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
       }
 
       function addListItem(pokemon) {
-        //pokemonRepository.loadDetails(pokemon).then(function() {
+        loadDetails(pokemon).then(function() {
         let pokemonList = document.querySelector(".pokemon-list"); //create new varible pokemonList wch takes queryselector wch is .pokemon-list class(frm index.html)
         let listpokemon = document.createElement("li"); //after creating ul element we create an li element using createElement
         let button = document.createElement("button"); //inside each li we create a button tag with createElement
@@ -38,11 +38,10 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         button.addEventListener("click", function(event) { //event listener which listens for a mouseclick, then executes the show details function for the pokemon
             showDetails(pokemon);
             // function that prints pokemon details onto console
-            
+            });
           });
         }
               
-
           function loadList() { //promise function which fetches the apiUrl
             return fetch(apiUrl).then(function(response) { //promise fetch(url) collects all the details through the response and passes
                 return response.json(); //them through to the json
@@ -132,7 +131,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             modalBody.append(abilitiesElement);
           }
 
-          //when the promise returned by fetch() is resolved,the response from the external source will be passed to the callback function in the .then()block
+                 //when the promise returned by fetch() is resolved,the response from the external source will be passed to the callback function in the .then()block
           fetch('https://pokeapi.co/api/v2/pokemon/').then(function(response) {
             return response.json(); //from there the promise is passed through the json()key, which holds a function that parses the response body into JSON data.                 .
           })
@@ -142,6 +141,8 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
           .catch(function() { //Error
 
           });
+
+          
 
           return {
             add: add,
