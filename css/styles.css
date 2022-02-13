@@ -17,6 +17,7 @@ body {
   box-sizing: border-box;
 }
 
+
 /*.modal-content {
   background-color: var(--color-orange);
 }*/
@@ -32,10 +33,15 @@ p {
   font-size: 1.25rem;
 }
 
+
 .pokemon-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  text-align: center;
+  font-size: large;
+  font-variant: small-caps;
+  font-weight: bold;
 }
 
 li {
@@ -47,14 +53,12 @@ li {
   border: 1px solid rgba(0, 0, 0, 0.125);
   background-color: var(--color-yellow) !important;
   width: 50%;
-  height: 50%;
   align-content: center;
 }
 
 li img {
   width: 30%;
-  height: fit-content;
-}
-
+  height:fit-content
+  }
 
 
