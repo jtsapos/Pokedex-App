@@ -9,5 +9,5 @@ Technologies Used:
 HTML5, CSS, JS
 Bootstrap
 jQuery
-<br/>Live Server
+<br/>Live Server:
 https://jtsapos.github.io/Pokedex-App/
