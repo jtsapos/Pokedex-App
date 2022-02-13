@@ -61,4 +61,10 @@ li img {
   height:fit-content
   }
 
+  .navbar-brand {
+    font-stretch: ultra-expanded;
+    font-style: oblique;
+    font-weight: bold;
+  }
+
 
