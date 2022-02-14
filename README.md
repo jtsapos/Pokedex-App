@@ -5,7 +5,7 @@ To build a small web application with HTML, CSS, and primarily JavaScript that l
 Loads data from external API (PokéAPI)
 Displays a list of Pokémon
 User action prompts a modal with details over Pokémon item.
-Technologies Used:
+<br/>Technologies Used:
 HTML5, CSS, JS
 Bootstrap
 jQuery
