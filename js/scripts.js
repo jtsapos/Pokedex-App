@@ -24,6 +24,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         //pokemonImage.src = pokemon.imageUrl;
         let pokemonName = document.createElement("div");
         pokemonImage.src = pokemon.imageUrlFront;
+        pokemonImage.alt= "image " + pokemon.name;
         pokemonName.innerText = pokemon.name; 
         button.innerText = "See details"; //renders the button, adds pokemon name inside the button
         listpokemon.classList.add("list-group-item");
@@ -109,7 +110,9 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             let nameElement = $("<h1>" + pokemon.name + "</h1>");
             // // creating img in modal content
             let imageElementFront = $('<img class="modal-img" style="width:50%">');
+            imageElementFront.attr("alt", "image " + pokemon.name);
             imageElementFront.attr("src", pokemon.imageUrlFront);
+            imageElementBack.attr("src", "image " + pokemon.name);
             let imageElementBack = $('<img class="modal-img" style="width:50%">');
             imageElementBack.attr("src", pokemon.imageUrlBack);
             // //creating element for height in modal content
