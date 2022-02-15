@@ -21,8 +21,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         let listpokemon = document.createElement("li"); //after creating ul element we create an li element using createElement
         let button = document.createElement("button"); //inside each li we create a button tag with createElement
         let pokemonImage = document.createElement("img"); //here we create an image tag
-        //pokemonImage.src = pokemon.imageUrl;
-        let pokemonName = document.createElement("div");
+        let pokemonName = document.createElement("div"); //here we create a name tag
         pokemonImage.src = pokemon.imageUrlFront;
         pokemonImage.alt= "image " + pokemon.name;
         pokemonName.innerText = pokemon.name; 
@@ -108,12 +107,12 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             modalBody.empty();
             //creating element for name in modal content
             let nameElement = $("<h1>" + pokemon.name + "</h1>");
-            // // creating img in modal content
+            // // creating element for image in modal content
             let imageElementFront = $('<img class="modal-img" style="width:50%">');
             imageElementFront.attr("alt", "image " + pokemon.name);
             imageElementFront.attr("src", pokemon.imageUrlFront);
-            imageElementBack.attr("src", "image " + pokemon.name);
             let imageElementBack = $('<img class="modal-img" style="width:50%">');
+            imageElementBack.attr("src", "image " + pokemon.name);
             imageElementBack.attr("src", pokemon.imageUrlBack);
             // //creating element for height in modal content
             let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
@@ -144,8 +143,6 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
           .catch(function() { //Error
 
           });
-
-          
 
           return {
             add: add,
