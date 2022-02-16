@@ -112,7 +112,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
             imageElementFront.attr("alt", "image " + pokemon.name);
             imageElementFront.attr("src", pokemon.imageUrlFront);
             let imageElementBack = $('<img class="modal-img" style="width:50%">');
-            imageElementBack.attr("src", "image " + pokemon.name);
+            imageElementBack.attr("alt", "image " + pokemon.name);
             imageElementBack.attr("src", pokemon.imageUrlBack);
             // //creating element for height in modal content
             let heightElement = $("<p>" + "height : " + pokemon.height + "</p>");
