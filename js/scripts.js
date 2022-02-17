@@ -35,7 +35,7 @@ let pokemonRepository = (function() { //creates an IIFE for pokemon list
         button.setAttribute('data-target', '#exampleModal');
         button.setAttribute('data-toggle', 'modal');
         //function buttonEventListener(button, pokemon) { // When the user clicks the selected button, the click function passed as the second parameter in addEventListener will be called to show pokemon details.
-        button.addEventListener('click', function(event) { //event listener which listens for a mouseclick, then executes the show details function for the pokemon
+        button.addEventListener('click', function() { //event listener which listens for a mouseclick, then executes the show details function for the pokemon
             showDetails(pokemon);
             // function that prints pokemon details onto console
             });
